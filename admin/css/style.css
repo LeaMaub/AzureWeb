@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bs-blue: #1A508E;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #61B5E4;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-primary: #61B5E4;
+    --bs-secondary: #1A508E;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    --bs-link-color: #61B5E4;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Jura', sans-serif;
+}
+
+.form__connect {
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.form__dashboard {
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.btn {
+    background-color: #61B5E4;
+    color:white;
+}
+
+.btn:hover {
+    background-color: #1A508E;
+    color:white;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.choices {
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+}
+
+.choice {
+    background-color: azure;
+    margin: 3rem;
+    align-items: center;
+    display: flex;
+    width: 10rem;
+    height: 5rem;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.7rem;
+    color:#1A508E;
+    border-radius: 10px;;
+}
+
+.logout {
+    margin-top: 3rem;
+    width: 100%;
+    height:10rem;
+}
+
+
+.projects__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+}
+
+.current__projects {
+    display: flex;
+    flex-direction: row;
+}
+
+.projects {
+    margin:2rem;
+}
+
+.projects > img {
+    width: 30rem;
+    height: 15rem;
+}
+
+.projects > p {
+    text-align: center;
+}
+
+.add__project {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin: 2rem;
+}
+
+.btn__container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}

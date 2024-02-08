@@ -1,0 +1,3 @@
+[2024-02-02T12:09:08.261755+00:00] database_logger.ERROR: Erreur de connexion à la base de données : SQLSTATE[HY000] [1045] Accès refusé pour l'utilisateur: ''@'@localhost' (mot de passe: NON) [] []
+[2024-02-02T12:15:59.009635+00:00] database_logger.ERROR: Erreur de connexion à la base de données : SQLSTATE[HY000] [1045] Accès refusé pour l'utilisateur: ''@'@localhost' (mot de passe: NON) [] []
+[2024-02-02T13:07:33.908923+00:00] database_logger.ERROR: Erreur de connexion à la base de données : SQLSTATE[HY000] [1045] Accès refusé pour l'utilisateur: ''@'@localhost' (mot de passe: NON) [] []
