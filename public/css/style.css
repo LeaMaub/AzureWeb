@@ -112,51 +112,68 @@ body {
     padding-top: 5rem;
 }
 
-.background__accueil {
-    background: url(../images/background_accueil2.webp);
-    height: 33rem;
-    background-position: bottom right;
-    background-repeat: no-repeat;
+.container__accueil {
+    display: flex;
+    min-height: 33rem;
 }
 
 .accueil__presentation {
-    background-color: rgba(0, 0, 0, 0.750);
-    width: 44rem;
-    height: 33rem;
-    padding:2rem;
+    flex: 0 0 40%;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.accueil__background {
+    flex: 0 0 60%;
+    background: url(../images/background_accueil2.webp) no-repeat bottom right;
+    background-size: cover;
+}
+
+.accueil__title, .accueil__subtitle, .accueil__description {
+    color: white;
+    margin: 0.5rem 0;
 }
 
 .accueil__title {
-    color: white;
-    font-weight: bold;
-    font-size: 3rem;
+    font-size: calc(1.5rem + 1.5vw);
 }
 
 .accueil__subtitle {
-    color:white;
-    font-weight: lighter;
+    font-size: calc(1rem + 1vw);
 }
 
 .accueil__description {
-    margin-top: 3rem;
-    color: white;
+    font-size: calc(0.7rem + 0.5vw);
+    overflow-y: auto;
 }
 
 .socialNetwork__buttons {
     display: flex;
-    width: 20rem;
-    height: 3rem;
-    margin: auto;
-    margin-top: 3rem;
-    padding: 1rem;
+    width: 80%;
+    max-width: 20rem;
+    height: auto;
+    margin: 2rem auto;
+    padding: 1.5rem;
     background-color: #61B5E4;
     border-radius: 50rem;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.socialNetwork__buttons > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .socialNetwork__buttons > a > i {
-    color:white;
+    color: white;
+    font-size: calc(1rem + 1vw);
 }
 
 .sr-only {
@@ -173,10 +190,10 @@ body {
 .portfolio__container {
     display: flex;
     flex-direction: column;
-    margin: 4rem;
-    padding-top: 2rem;
+    margin: 0 auto;
+    padding-top: 4rem;
+    width:100%;
     align-items: center;
-    justify-content: center;
 }
 
 .portfolio__container > .portfolio__icon {
@@ -187,13 +204,15 @@ body {
 
 .portfolio__title {
     color: #1A508E;
+    margin:0;
 }
 
 .portfolio__projects {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    width: calc(100% - 4rem);
+    grid-template-columns: repeat(4, 20rem);
     gap: 2em;
-    margin-top: 3.5rem;
+    margin: 2rem;
 }
 
 .project {
@@ -268,20 +287,24 @@ body {
 
 .services__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
     gap: 2rem;
     padding: 5.5rem 2rem 2rem;
-    margin: 4rem;
+    margin: 4rem auto;
+    justify-content: center;
 }
 
 .service-card {
     background: linear-gradient(0.35turn, #61B5E4, #1A508E);
     border-radius: 20px;
+    box-sizing: border-box;
     padding: 1rem;
     padding-top: 6em;
     transition: transform 0.3s ease;
     position: relative;
     height: 30rem;
+    width: 23rem; 
+    margin: 0 auto;
 }
 
 .service-card:hover {
@@ -298,14 +321,17 @@ body {
     border-radius: 50%;
 }
 
+.service__subtitle, .service__description {
+    text-align: left;
+    color: white;
+}
+
 .service__subtitle {
-    color: white; 
     font-size: 2rem; 
     margin-bottom: 4rem;
 }
 
 .service__description {
-    color: white;
     font-size: 1.2rem;
     font-weight: lighter;
 }
@@ -407,16 +433,18 @@ li > .uppercase {
     display: flex;
     justify-content: space-around;
     margin: 4rem;
+    flex-wrap: wrap;
 }
 
 .testimonial {
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto auto auto auto;
     background: #f8f8f8;
     text-align: center;
     margin: 1em;
     padding: 2em;
     height: 37rem;
+    width: 30rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -638,3 +666,28 @@ footer {
     margin: 0;
 }
 
+/* MEDIA QUERIES */
+
+/* BARRE DE NAVIGUATION */
+
+
+
+/* PROJETS */
+
+@media (max-width: 1200px) {
+    .portfolio__projects {
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+    .portfolio__projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .portfolio__projects {
+        grid-template-columns: 1fr;
+    }
+}

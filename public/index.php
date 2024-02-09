@@ -42,7 +42,7 @@
     $header->render();
 ?>
     <section class="accueil" id="accueil">
-        <div class="background__accueil">
+        <div class="container__accueil">
             <div class="accueil__presentation">
                 <h1 class="accueil__title">AzureWeb</h1>
                 <h2 class="accueil__subtitle">Création de sites vitrine</h2>
@@ -51,6 +51,7 @@
                     nous nous engageons à vous fournir des solutions efficaces. Ensemble, bâtissons l'avenir de votre entreprise sur le web.</p>
                 <?php $socialNetworkButtons->render();?>
             </div>
+            <div class="accueil__background"></div>
         </div>
         <div class="portfolio__container">
             <span class="portfolio__icon fa-solid fa-briefcase fa-2xl"></span>
@@ -151,7 +152,7 @@
                 <div class="stars"><?= str_repeat("★", $review['note']) . str_repeat('<span class="empty-star">★</span>', 5 - $review['note']) ?></div>
                 <blockquote> <?= htmlspecialchars($review['reviewText']) ?></blockquote>
                 <div class="customer">
-                    <img src="<?= htmlspecialchars($review['profilPicture']) ?>" alt="Photo de profil client" class="profil-picture">
+                    <img src="/public/images/<?= htmlspecialchars($review['profilPicture']) ?>" alt="Photo de profil client" class="profil-picture">
                     <cite class="customer-name"><?= htmlspecialchars($review['customerName']) ?></cite>
                 </div>
             </div>

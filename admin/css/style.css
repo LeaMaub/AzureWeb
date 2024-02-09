@@ -133,3 +133,81 @@ h1 {
     justify-content: center;
     margin: 2rem;
 }
+
+.reviews__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.reviews__container > h1 {
+    margin: 0;
+    margin-top: 3rem;
+}
+
+.current__reviews {
+    display: flex;
+    flex-direction: row;
+    margin: 4rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.review {
+    display: grid; 
+    grid-template-rows: auto auto auto auto;
+    padding: 3rem;
+    gap: 1rem;
+    width: 30rem;
+    background-color: #f8f8f8;
+}
+
+.note {
+    font-weight: bold;
+}
+
+.customer__name {
+    font-style: italic;
+    display: flex;
+    align-items: center;
+}
+
+.profil__picture {
+    border-radius: 50%;
+    width: 4rem;
+    margin-right: 1rem;
+}
+
+.form__add__review {
+    margin: 3rem;
+}
+
+.add__review {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+}
+
+.add__review textarea {
+    grid-column: 1 / -1;
+    resize: none;
+    height: 10rem;
+}
+
+.add__review .add__profil__picture,
+.add__review .add__customer__name {
+    grid-column: span 1;
+}
+
+.btn__container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.form__delete__review {
+    margin: 3rem;
+    display: grid;
+    grid-template-columns: auto;
+}

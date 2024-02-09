@@ -8,10 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../public/css/style.css">
-    <title>AzurWeb</title>
+    <title>AzureWeb</title>
 </head>
 <body>
-    <section class="header__container d-flex align-items-center">
+    <nav class="header__container d-flex align-items-center">
         <div class="logo__container">
             <a href="index.html" class="d-inline-flex link-body-emphasis text-decoration-none">
                 <img class="logo" src="images/Logo_carre.png" alt="Logo AzurWeb">
@@ -27,4 +27,4 @@
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </header>
-    </section>
+    </nav>
