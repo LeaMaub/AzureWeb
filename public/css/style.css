@@ -79,7 +79,6 @@ body {
 .header__container {
     position: fixed;
     width: 100%;
-    height: 5rem;
     z-index: 1030;
     font-size: 1.4em;
     background-color: white;
@@ -87,15 +86,28 @@ body {
     color: #61B5E4;
 }
 
+header {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .logo__container {
-    margin-right: 34rem;
-    margin-left: 1rem;
-    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2rem;
 }
 
 .logo {
-    width: 5rem;
+    width: 4.5rem;
     border-radius: 50%;
+}
+
+.menu-toggle {
+    display: none;
 }
 
 .nav-pills > .nav-item > .nav-link.active {
@@ -104,6 +116,10 @@ body {
 
 .nav-pills > .nav-item > .nav-link.disabled {
     color:#bbcedf
+}
+
+.void {
+    margin-right: 2rem
 }
 
 /* ACCUEIL */
@@ -129,7 +145,8 @@ body {
 
 .accueil__background {
     flex: 0 0 60%;
-    background: url(../images/background_accueil2.webp) no-repeat bottom right;
+    background: url(../images/background_accueil1.jpg) no-repeat;
+    background-position: 25% 75%;
     background-size: cover;
 }
 
@@ -211,8 +228,9 @@ body {
     display: grid;
     width: calc(100% - 4rem);
     grid-template-columns: repeat(4, 20rem);
-    gap: 2em;
+    gap: 4em;
     margin: 2rem;
+    justify-content: center;
 }
 
 .project {
@@ -343,7 +361,7 @@ body {
 }
 
 .background__tarifs {
-    background: url(../images/background_tarifs.png);
+    background: url(../images/background_tarifs2.webp);
     opacity: 80%;
     background-position: center;
     background-size: cover;
@@ -537,7 +555,7 @@ h4 > .blue {
 }
 
 .background__contact {
-    background: url(../images/background_contact.png);
+    background: url(../images/background_contact2.webp);
     opacity: 80%;
     background-position: center;
     background-size: cover;
@@ -670,7 +688,41 @@ footer {
 
 /* BARRE DE NAVIGUATION */
 
+@media screen and (max-width: 768px) {
+    .nav {
+        display: none;
+        position: absolute;
+        background-color: #61B5E4;
+        width: 100%;
+        top: 5rem;
+        left: 0;
+        z-index: 1030;
+    }
 
+    .nav-pills > .nav-item > .nav-link {
+        color: white;
+    }
+
+    .nav-pills > .nav-item > .nav-link:hover {
+        background-color: #1A508E;
+        border-radius: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        margin-right: 2rem;
+        font-size: 2rem;
+    }
+
+    .void {
+        display: none ;
+    }
+
+    .nav-closed .nav {
+        display: none;
+    }
+}
 
 /* PROJETS */
 

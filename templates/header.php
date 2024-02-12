@@ -11,13 +11,17 @@
     <title>AzureWeb</title>
 </head>
 <body>
-    <nav class="header__container d-flex align-items-center">
+    <nav class="header__container">
+    <header>
         <div class="logo__container">
-            <a href="index.html" class="d-inline-flex link-body-emphasis text-decoration-none">
-                <img class="logo" src="images/Logo_carre.png" alt="Logo AzurWeb">
+            <a href="index.php" class="d-inline-flex link-body-emphasis text-decoration-none">
+                <img class="logo" src="/public/images/logo_carre.png" alt="Logo AzureWeb">
             </a>
         </div>
-        <header>
+        <div class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="#accueil" class="nav-link active" aria-current="page">Accueil</a></li>
                 <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
@@ -26,5 +30,7 @@
                 <li class="nav-item"><a href="#" class="nav-link disabled">FAQ</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+        
+        <div class="void"></div>
         </header>
     </nav>
