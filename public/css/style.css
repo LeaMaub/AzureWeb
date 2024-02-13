@@ -461,7 +461,7 @@ li > .uppercase {
 .testimonial {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Cela distribue l'espace verticalement entre les éléments */
+    justify-content: space-between;
     background: #f8f8f8;
     text-align: center;
     margin: 1em;
