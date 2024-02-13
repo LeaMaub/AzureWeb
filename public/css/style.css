@@ -346,7 +346,7 @@ header {
 }
 
 .service__subtitle {
-    font-size: calc(1.5rem + 1.5vw); 
+    font-size: 2rem; 
     margin-bottom: 4rem;
 }
 
@@ -366,7 +366,7 @@ header {
     opacity: 80%;
     background-position: bottom;
     background-size: cover;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -374,9 +374,11 @@ header {
 
 .tarifs__container {
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
-    align-items: center;
-    width: 80%;
+    align-items: stretch;
+    width: 100%;
+    margin: 3rem;
 }
 
 .tarif {
@@ -457,24 +459,19 @@ li > .uppercase {
 }
 
 .testimonial {
-    display: grid;
-    grid-template-rows: auto auto auto auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Cela distribue l'espace verticalement entre les éléments */
     background: #f8f8f8;
     text-align: center;
     margin: 1em;
     padding: 2em;
-    height: 37rem;
-    width: 30rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 30rem;
 }
 
 .testimonial h4 {
-    font-size: calc(1.5rem + 1.5vw);
-}
-
-h4 > .orange {
-    color: #de8956;
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 
 h4 > .blue {
@@ -500,10 +497,7 @@ h4 > .blue {
 }
 
 .customer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem;
+    margin-top: auto;
 }
 
 .customer-name {
@@ -828,6 +822,7 @@ footer {
     .tarifs__container {
         flex-direction: column;
         width: 100%;
+        align-items: center;
     }
 
     .tarif {
@@ -869,6 +864,11 @@ footer {
 
     .tarif {
         width: 100%;
+    }
+
+    .tarif > .btn__container > .btn {
+        width: 100%;
+        padding: 2rem;
     }
 }
 
@@ -923,7 +923,7 @@ footer {
 
     .contact__box {
         width: 100%;
-        margin: 2rem;
+        margin: 0;
         margin-bottom: 3rem;
         border-radius: 3rem;
     }
@@ -935,6 +935,7 @@ footer {
     .contact__text {
         font-size: 1rem;
         text-align: center;
+        display: none;
     }
 
     .input__container {
