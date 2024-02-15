@@ -58,6 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="projects__container">
         <h1>Projets</h1>
+        <div class="btn__container">
+            <a class="btn return" href="/admin/dashboard.php">Retour</a>
+        </div>
         <section class="current__projects">
             <?php foreach ($projects as $project): ?>
                 <div class="projects">
@@ -81,10 +84,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
 
         <h2>Supprimer un projet</h2>
-        <form method="POST" action="projects.php">
-            <input type="number" name="project_id" placeholder="ID du projet" required>
-            <button type="submit" name="delete_project">Supprimer</button>
-        </form>
+            <table class="table delete__project">
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Alt</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($projects as $project): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($project['title']); ?></td>
+                        <td><?= htmlspecialchars($project['altText']); ?></td>
+                        <td>
+                            <form method="POST" action="projects.php" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce projet ?');">
+                                <input type="hidden" name="project_id" value="<?= $project['id']; ?>">
+                                <button type="submit" name="delete_project" class="btn">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+    <div class="btn__container">
+            <a class="btn return" href="/admin/dashboard.php">Retour</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

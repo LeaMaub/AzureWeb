@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once __DIR__ . '/../classes/Database.php';
     require_once __DIR__ . '/../classes/Header.php';
     require_once __DIR__ . '/../vendor/autoload.php';
@@ -20,6 +21,10 @@
 
     $db = new Database($_ENV['DB_HOST'], $_ENV['DB_NAME'], $_ENV['DB_USER'], $_ENV['DB_PASS']);
     $pdo = $db->getConnection();
+
+    if (!isset($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
 
     $header = new Header();
     $footer = new Footer();
@@ -168,30 +173,38 @@
                 <h4 class="contact__title">Contact</h4>
                 <p class="contact__text">Pour toutes demandes d’informations ou de devis, veuillez m’adressez un e-mail 
                     grâce a ce formulaire ou via mon adresse e-mail.</p>
-                <form action="">
+                <form id="contact-form" action="process_message.php" method="post">
                     <div class="form__container row g-2">
                         <div class="input__container col-sm-6">
                             <label for="lastname"></label>
-                            <input class="input__fields" type="text" id="lastname" placeholder="Nom" required>
+                            <input class="input__fields" type="text" id="lastname" name="lastname" placeholder="Nom" required>
                         </div>
                         <div class="input__container col-sm-6">
                             <label for="firstname"></label>
-                            <input class="input__fields" type="text" id="firstname" placeholder="Prénom" required>
+                            <input class="input__fields" type="text" id="firstname" name="firstname" placeholder="Prénom" required>
                         </div>
                         <div class="input__container col-sm-6">
-                            <label for="phonenumber"></label>
-                            <input class="input__fields" type="tel" id="phonenumber" placeholder="Téléphone" required>
+                            <label for="telephone"></label>
+                            <input class="input__fields" type="tel" id="telephone" name="telephone" placeholder="Téléphone" required>
                         </div>
                         <div class="input__container col-sm-6">
                             <label for="email"></label>
-                            <input class="input__fields" type="email" id="email" placeholder="E-mail" required>
+                            <input class="input__fields" type="email" id="email" name="email" placeholder="E-mail" required>
                         </div>
                         <div class="textarea__container col-sm-12">
-                            <textarea class="input__fields" name="" id="message" placeholder="Message" cols="30" rows="10"></textarea>
+                            <label for="message"></label>
+                            <textarea class="input__fields" id="message" name="message" placeholder="Message" cols="30" rows="10"></textarea>
                         </div>
                     </div>
+                    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                    <input type="hidden" id="recaptchaResponse" name="g-recaptcha-response">
                     <div class="btn__container">
-                        <button type="button" class="btn">Envoyer</button>
+                        <button class="g-recaptcha btn" 
+                                data-sitekey="6LeeKnIpAAAAAKj5nNrQVrkW6wfNlIjIRiqBDejn" 
+                                data-callback='onSubmit' 
+                                data-action='submit'>
+                                Envoyer
+                        </button>
                     </div>
                 </form>
             </div>

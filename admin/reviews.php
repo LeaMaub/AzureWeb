@@ -74,6 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="reviews__container">
         <h1>Avis</h1>
+        <div class="btn__container">
+            <a class="btn return" href="/admin/dashboard.php">Retour</a>
+        </div>
         <section class="current__reviews">
         <?php foreach ($reviews as $review): ?>
         <div class="review">
@@ -100,12 +103,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
 
         <h2>Supprimer un avis</h2>
-        <form class="form__delete__review" method="POST" action="reviews.php">
-            <input type="number" name="review_id" placeholder="ID de l'avis" required>
-            <div class="btn__container">
-            <button class="btn" type="submit" name="delete_review">Supprimer</button>
-            </div>
-        </form>
+        <table class="table delete__review">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Contenu</th>
+                    <th>Auteur</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($reviews as $review): ?>
+                <tr>
+                    <td><?= htmlspecialchars($review['title']); ?></td>
+                    <td><?= nl2br(htmlspecialchars($review['reviewText'])); ?></td>
+                    <td><?= htmlspecialchars($review['customerName']); ?></td>
+                    <td>
+                        <form method="POST" action="reviews.php">
+                            <input type="hidden" name="review_id" value="<?= $review['id']; ?>">
+                            <button class="btn" type="submit" name="delete_review">Supprimer</button>
+                        </form>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <div class="btn__container">
+            <a class="btn return" href="/admin/dashboard.php">Retour</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

@@ -61,3 +61,60 @@ document.addEventListener('DOMContentLoaded', function() {
         activateLink(currentSection);
     });
 });
+
+
+$(document).ready(function() {
+    $('#contact-form').on('submit', function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            type: 'POST',
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            success: function(response) {
+                // Vous pouvez ici définir la logique pour afficher votre pop-up
+                // Par exemple, si vous utilisez Bootstrap, vous pourriez utiliser leur composant modal
+                // Sinon, vous pouvez simplement utiliser alert() pour un test rapide :
+                alert('Votre message a été envoyé avec succès.');
+            },
+            error: function() {
+                alert('Une erreur est survenue lors de l\'envoi du message.');
+            }
+        });
+    });
+});
+
+function onSubmit(token) {
+    document.getElementById("contact-form").submit();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const replyButtons = document.querySelectorAll('.reply-button');
+
+    replyButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            const messageId = this.dataset.messageId;
+            const email = this.dataset.email;
+            const subject = encodeURIComponent(this.dataset.subject);
+            const body = encodeURIComponent(this.dataset.body);
+
+            fetch('/admin/archiveMessage.php', {
+                method: 'POST',
+                body: JSON.stringify({ message_id: messageId }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+                    window.location.reload();
+                } else {
+                    alert('Erreur lors de l\'archivage du message.');
+                }
+            });
+        });
+    });
+});

@@ -28,11 +28,27 @@ class Database {
         return $this->connection;
     }
 
+    public function beginTransaction() {
+        $this->connection->beginTransaction();
+    }
+
+    public function commit() {
+        $this->connection->commit();
+    }
+
+    public function rollBack() {
+        $this->connection->rollBack();
+    }
+
+    public function prepare($sql) {
+        return $this->connection->prepare($sql);
+    }
+
     public function query($sql, $params = []) {
         try {
             $stmt = $this->connection->prepare($sql);
             $stmt->execute($params);
-            return $stmt->fetchAll();
+            return $stmt;
         } catch (PDOException $e) {
             $this->logger->error('Erreur lors de l\'exécution de la requête : ' . $e->getMessage());
             throw new \Exception('Erreur lors de l\'exécution de la requête');

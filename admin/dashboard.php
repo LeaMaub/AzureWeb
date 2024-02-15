@@ -30,6 +30,7 @@ $db = new Database($_ENV['DB_HOST'], $_ENV['DB_NAME'], $_ENV['DB_USER'], $_ENV['
         <div class="choices">
             <a class="choice" href="projects.php">Projets</a>
             <a class="choice" href="reviews.php">Avis</a>
+            <a class="choice" href="messages.php">Messages</a>
         </div>
         <div class="logout">
             <form action="logout.php" method="post">

@@ -36,7 +36,58 @@
 
 body {
     font-family: 'Jura', sans-serif;
+    background-color: #61b4e488;
 }
+
+.btn__container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.btn {
+    background-color: #1A508E;
+    color:white;
+}
+
+.return {
+    background-color: white; 
+    color: #1A508E;
+}
+
+.return:hover {
+    background-color: #1A508E !important;
+    color:white !important;
+}
+
+.btn:hover {
+    background-color: white;
+    color:#1A508E;
+    border: 1px solid #1A508E;
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+input, textarea {
+    width: 100%;
+    height: auto;
+    background-color: #1A508E73;
+    border-radius: 1rem;
+    border: 2px solid #fffffff7;
+    padding: 1rem;
+    color: white;
+}
+
+input:focus, textarea:focus {
+    box-shadow: 0 0 8px 2px #ffffff46;;
+    border: 2px solid #cacaca00;
+    outline: 2px solid #ffffff46;
+}
+
+/* Projets */
 
 .form__connect {
     text-align: center;
@@ -50,20 +101,6 @@ body {
     align-items: center;
     flex-direction: column;
     width: 100%;
-}
-
-.btn {
-    background-color: #61B5E4;
-    color:white;
-}
-
-.btn:hover {
-    background-color: #1A508E;
-    color:white;
-}
-
-h1 {
-    font-size: 3rem;
 }
 
 .choices {
@@ -104,6 +141,7 @@ h1 {
 .current__projects {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .projects {
@@ -111,28 +149,37 @@ h1 {
 }
 
 .projects > img {
-    width: 30rem;
+    width: 15rem;
     height: 15rem;
+    object-fit: cover;
+    object-position: center;
 }
 
 .projects > p {
     text-align: center;
+    font-size: 1.3rem;
+    background-color: rgba(255, 255, 255, 0.884);
+    border-radius: 0 0 0.5rem 0.5rem;
 }
 
 .add__project {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    gap: 1.5rem;
     margin: 2rem;
 }
 
-.btn__container {
-    display: flex;
-    justify-content: center;
+.delete__project {
     margin: 2rem;
 }
+
+@media (max-width: 600px) {
+    .add__project {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Avis */
 
 .reviews__container {
     display: flex;
@@ -159,7 +206,9 @@ h1 {
     grid-template-rows: auto auto auto auto;
     padding: 3rem;
     gap: 1rem;
-    width: 30rem;
+    width: 30%;
+    min-width: 250px;
+    max-width: 500px;
     background-color: #f8f8f8;
 }
 
@@ -200,14 +249,65 @@ h1 {
     grid-column: span 1;
 }
 
-.btn__container {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
+.delete__review {
+    margin: 3rem;
 }
 
-.form__delete__review {
-    margin: 3rem;
-    display: grid;
-    grid-template-columns: auto;
+@media (max-width: 600px) {
+    .customer__name {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profil__picture {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Messages */
+
+.unread__messages {
+    min-height: 10rem;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.message {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    margin: 4rem;
+    padding-top: 2rem;
+    background-color: rgba(255, 255, 255, 0.87);
+    border-radius: 1rem;
+    width: 80%;
+}
+
+.user__infos {
+    padding: 0.5rem 2rem;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+}
+
+strong {
+    font-size: 1.1rem;
+}
+
+@media (max-width: 600px) {
+    .message {
+        width: 95%;
+        margin: 2rem 0;
+    }
+
+    .user__infos, strong {
+        font-size: 0.9rem;
+    }
 }
