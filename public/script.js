@@ -72,17 +72,23 @@ $(document).ready(function() {
             url: $(this).attr('action'),
             data: $(this).serialize(),
             success: function(response) {
-                // Vous pouvez ici définir la logique pour afficher votre pop-up
-                // Par exemple, si vous utilisez Bootstrap, vous pourriez utiliser leur composant modal
-                // Sinon, vous pouvez simplement utiliser alert() pour un test rapide :
-                alert('Votre message a été envoyé avec succès.');
+                $('#modalTitle').text('Message envoyé !');
+                $('#modalBody').text('Nous vous remercions de votre intérêt, vous recevrez une réponse de notre équipe prochainement.');
+                
+                const responseModal = new bootstrap.Modal(document.getElementById('responseModal'));
+                responseModal.show();
             },
             error: function() {
-                alert('Une erreur est survenue lors de l\'envoi du message.');
+                $('#modalTitle').text('Echec de l\'envoi');
+                $('#modalBody').text('Nous sommes désolés, une erreur est survenue lors de l\'envoi du message.');
+
+                const responseModal = new bootstrap.Modal(document.getElementById('responseModal'));
+                responseModal.show();
             }
         });
     });
 });
+
 
 function onSubmit(token) {
     document.getElementById("contact-form").submit();

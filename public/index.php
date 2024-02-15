@@ -211,3 +211,17 @@
         </div>
     </section>
     <?php $footer->render(); ?>
+    <div class="modal fade" id="responseModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-3 shadow">
+            <div class="modal-body p-4 text-center">
+                <h5 class="mb-0" id="modalTitle">Message envoyé !</h5>
+                <p class="mb-0" id="modalBody">Nous vous remercions de votre intérêt, vous recevrez une réponse de notre équipe prochainement.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
