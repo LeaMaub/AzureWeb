@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AzurWeb vous offre ses services afin de mener à bien vos projets dans la création de vos sites web">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="author" content="Léa Maubert">
+    <meta name="description" content="AzureWeb vous offre ses services afin de mener à bien vos projets dans la création de vos sites web.">
+    <meta property="og:image" content="https://www.azureweb.fr/public/images/logo_carre.png">
+    <meta property="og:url" content="https://azureweb.fr">
+    <meta property="og:site" content="https://azureweb.fr">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"/>
     <link rel="stylesheet" href="../public/css/style.css">
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LeeKnIpAAAAAKj5nNrQVrkW6wfNlIjIRiqBDejn"></script>
     <title>AzureWeb</title>
 </head>
 <body>
@@ -29,9 +34,13 @@
                 <li class="nav-item"><a href="#tarifs" class="nav-link">Tarifs</a></li>
                 <li class="nav-item"><a href="#avis" class="nav-link">Avis</a></li>
                 <li class="nav-item"><a href="#" class="nav-link disabled">FAQ</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         
-        <div class="void"></div>
+        <div class="contact">
+            <a href="mailto:azweb.connect@outlook.fr" class="nav-link mail">
+                <i class="fa-regular fa-envelope"></i>
+                <span class="contact__us">Contactez-nous !</span>
+            </a>
+        </div>
         </header>
     </nav>

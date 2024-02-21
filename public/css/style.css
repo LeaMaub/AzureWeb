@@ -75,6 +75,14 @@ body {
     box-shadow: none;
 }
 
+.blue {
+    color: #61B5E4;
+}
+
+.modal-footer {
+    justify-content: center !important;
+}
+
 /* BARRE DE NAVIGUATION */
 
 .header__container {
@@ -119,8 +127,29 @@ header {
     color:#bbcedf
 }
 
-.void {
-    margin-right: 2rem
+.contact {
+    margin-right: 2rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.mail {
+    display: flex;
+    align-items: center;
+}
+
+.fa-envelope {
+    margin-right: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.contact__us {
+    font-size: 1.2rem;
+}
+
+.fa-envelope:hover, .contact__us:hover {
+    color:#1A508E;
 }
 
 /* ACCUEIL */
@@ -475,7 +504,6 @@ li > .uppercase {
 }
 
 h4 > .blue {
-    color: #61B5E4;
     font-size: 2.5rem;
 }
 
@@ -544,84 +572,20 @@ h4 > .blue {
     margin-right: -20px;
 }
 
-/* CONTACT */
-
-.contact {
-    padding-top: 5rem;
-}
-
-.background__contact {
-    background: url(../images/background_contact1.webp);
-    opacity: 80%;
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
+.zero__testimonials {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-}
-
-.contact__box {
-    position: relative;
-    background: rgba(255, 255, 255, 0.965);
-    margin: 1rem;
+    background-color: #f8f8f8;
     padding: 2rem;
-    border-radius: 10rem;
-    box-shadow: 4px 4px 30px 20px #000000b5;
-    width: 60rem;
-    height: auto;
 }
 
-.contact__title {
-    font-size: 4em;
-    text-align: center;
-    margin-bottom: 2rem;
+.zero__testimonials > h4 {
+    font-size: 2rem;
 }
 
-.contact__text {
-    font-size: 1.2em
-}
-
-.form__container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.input__container {
-    width: 22rem;
-    margin-right: 2rem;
-    margin-left: 2rem;
-}
-
-.input__fields {
-    width: 100%;
-    height: auto;
-    background-color: #de8a5611;
-    border-radius: 1rem;
-    border: 2px solid #cacaca7e;
-    padding: 1rem;
-    transition: box-shadow 0.3s;
-    box-shadow: 0 0 0 0px transparent;
-}
-
-.input__fields:focus {
-    box-shadow: 0 0 8px 2px #de8a5646;;
-    border: 2px solid #cacaca00;
-    outline: 2px solid #de8a5646;
-}
-
-.textarea__container {
-    flex: 0 0 100%;
-    max-width: 46rem;
-    margin: 0 auto;
-    margin-bottom: 3rem;
-}
-
-.textarea__container > .input__fields {
-    resize: none;
-    margin-top: 2rem;
+.zero__testimonials > blockquote {
+    font-size: 1.1rem;
 }
 
 /* FOOTER */
@@ -680,6 +644,53 @@ footer {
     margin: 0;
 }
 
+.pc, .ml {
+    text-align: center;
+    color: #6c757d;
+}
+
+.pc:hover, .ml:hover  {
+    color: #1A508E; 
+}
+
+/* POLITIQUE DE CONFIDENTIALITE / MENTIONS LEGALES */
+
+.politique, .mentions_legales {
+    margin: 2rem;
+    padding: 2rem;
+    background-color: #f8f8f8;
+}
+
+.politique > h1, .mentions_legales > h1{
+    text-align: center;
+}
+
+.politique > .maj {
+    text-align: center;
+}
+
+.intro {
+    margin-top: 4rem;
+}
+
+.link {
+    text-decoration: none;
+    color:#61B5E4;
+}
+
+.politique > h2, .mentions_legales > h2 {
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+.politique > p, .mentions_legales > p {
+    font-size: 1.1rem;
+}
+
+.politique > ul {
+    list-style-type: "- " ;
+}
+
 /* MEDIA QUERIES */
 
 /* BARRE DE NAVIGUATION */
@@ -711,8 +722,8 @@ footer {
         font-size: 2rem;
     }
 
-    .void {
-        display: none ;
+    .contact__us {
+        display: none;
     }
 
     .nav-closed .nav {
@@ -910,66 +921,6 @@ footer {
 @media (min-width: 768px) and (max-width: 1280px) {
     .congratulation p::after, .congratulation p::before {
         display:none;
-    }
-}
-
-/* CONTACT */
-
-@media screen and (max-width: 768px) {
-    .background__contact {
-        height: auto;
-        padding: 1rem;
-    }
-
-    .contact__box {
-        width: 100%;
-        margin: 0;
-        margin-bottom: 3rem;
-        border-radius: 3rem;
-    }
-
-    .contact__title {
-        font-size: 3rem;
-    }
-
-    .contact__text {
-        font-size: 1rem;
-        text-align: center;
-        display: none;
-    }
-
-    .input__container {
-        width: 50%;
-        margin:0;
-    }
-
-    .textarea__container {
-        max-width: 100%;
-    }
-
-    .contact__box > form > .btn__container > .btn {
-        width: 100%;
-        padding: 2rem;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1280px) {
-    .background__contact {
-        height: auto;
-        padding: 1rem;
-    }
-
-    .contact__box {
-        margin: 2rem;
-    }
-
-    .input__container {
-        width: 50%;
-        margin:0;
-    }
-
-    .textarea__container {
-        max-width: 100%;
     }
 }
 

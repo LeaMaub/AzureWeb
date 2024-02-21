@@ -13,7 +13,7 @@ class SocialLink {
     }
 
     public function render() {
-        echo "<a href=\"{$this->url}\"><i class=\"{$this->faClass}\"></i><span class=\"sr-only\">{$this->screenReaderText}</span></a>";
+        echo "<a href=\"{$this->url}\" target=\"_blank\"><i class=\"{$this->faClass}\"></i><span class=\"sr-only\">{$this->screenReaderText}</span></a>";
     }
 }
 

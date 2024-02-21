@@ -15,12 +15,12 @@ class Project {
     }
 
     public function render() {
-        return "<a href=\"{$this->url}\" class=\"project\">
-                    <img src=\"/public/images/{$this->image}\" alt=\"{$this->altText}\">
-                    <div class=\"overlay\">
-                        <span class=\"project-title\">{$this->title}</span>
-                    </div>
-                </a>";
+        return '<a href="' . $this->url . '" class="project" target="_blank">' .
+                    '<img src="/public/images/' . $this->image . '" alt="' . $this->altText . '">' .
+                    '<div class="overlay">' .
+                    '<span class="project-title">' . $this->title . '</span>' .
+                    '</div>' .
+                '</a>';
     }    
 }
 

@@ -1,4 +1,12 @@
 <?php
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path' => '/',
+        'domain' => $_SERVER['HTTP_HOST'],
+        'secure' => true,
+        'httponly' => true,
+        'samesite' => 'Lax'
+    ]);
     session_start();
     require_once __DIR__ . '/../classes/Database.php';
     require_once __DIR__ . '/../classes/Header.php';
@@ -22,17 +30,13 @@
     $db = new Database($_ENV['DB_HOST'], $_ENV['DB_NAME'], $_ENV['DB_USER'], $_ENV['DB_PASS']);
     $pdo = $db->getConnection();
 
-    if (!isset($_SESSION['csrf_token'])) {
-        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-    }
-
     $header = new Header();
     $footer = new Footer();
     $socialNetworkButtons = new SocialNetworkButtons();
-    $socialNetworkButtons->addLink('https://www.facebook.fr', 'fa-brands fa-facebook fa-2xl', 'Facebook');
-    $socialNetworkButtons->addLink('https://www.linkedin.fr', 'fa-brands fa-linkedin fa-2xl', 'LinkedIn');
-    $socialNetworkButtons->addLink('https://www.instagram.fr', 'fa-brands fa-instagram fa-2xl', 'Instagram');
-    $socialNetworkButtons->addLink('https://github.fr', 'fa-brands fa-github fa-2xl', 'GitHub');
+    $socialNetworkButtons->addLink('https://www.facebook.com/team.azureweb', 'fa-brands fa-facebook fa-2xl', 'Facebook');
+    $socialNetworkButtons->addLink('https://www.linkedin.com/in/léa-maubert-45633614a', 'fa-brands fa-linkedin fa-2xl', 'LinkedIn');
+    $socialNetworkButtons->addLink('https://www.instagram.com/azure_web/', 'fa-brands fa-instagram fa-2xl', 'Instagram');
+    $socialNetworkButtons->addLink('https://github.com/LeaMaub', 'fa-brands fa-github fa-2xl', 'GitHub');
 
     $projectData = $db->getProjects();
 
@@ -71,25 +75,25 @@
         </div>
         <div class="services__grid">
             <div class="service-card">
-                <img src="./images/palette2.png" alt="Logo palette" class="service__logo">
+                <img src="/public/images/palette.jpg" alt="Logo palette" class="service__logo">
                 <h4 class="service__subtitle">Un Style Frais et Actuel</h4>
                 <p class="service__description">Apportons un souffle de modernité à votre présence en ligne. 
                     Des designs contemporains qui évoluent avec votre clientèle et les tendances du moment.</p>
             </div>
             <div class="service-card">
-                <img src="./images/globe3.jpg" alt="Logo globe terrestre" class="service__logo">
+                <img src="/public/images/smartphone.webp" alt="Logo smartphone" class="service__logo">
                 <h4 class="service__subtitle">Boostez Votre Visibilité</h4>
                 <p class="service__description">Assurez-vous que votre entreprise soit visible là où vos clients 
                     vous cherchent. Nous mettons en place des techniques pour que vous soyez facilement trouvé et apprécié sur Internet.</p>
             </div>
             <div class="service-card">
-                <img src="./images/projecteur2.jpg" alt="Logo projecteur" class="service__logo">
+                <img src="/public/images/tapis_rouge.webp" alt="Logo tapis rouge" class="service__logo">
                 <h4 class="service__subtitle">Votre Entreprise en Vedette</h4>
                 <p class="service__description">Offrons à votre entreprise une présence en ligne unique qui 
                     reflète parfaitement votre identité. Des sites web personnalisés sur mesure, conçus pour attirer et captiver vos clients.</p>
             </div>
             <div class="service-card">
-                <img src="./images/oreille2.jpg" alt="Logo oreille" class="service__logo">
+                <img src="/public/images/carnet.webp" alt="Logo carnet de note" class="service__logo">
                 <h4 class="service__subtitle">À l'Écoute de Votre Projet</h4>
                 <p class="service__description">Nous sommes attentifs à votre projet, prêts à le comprendre et à le concrétiser selon vos besoins 
                     et vos aspirations.</p>
@@ -104,7 +108,7 @@
                     <p class="from">à partir de</p>
                     <p class="price">1 500€</p>
                     <ul>
-                        <li>Création sur la plateforme WorPress : <span class="lighter">outil de gestion de contenu</span></li>
+                        <li>Création sur la plateforme WordPress : <span class="lighter">outil de gestion de contenu</span></li>
                         <li class="blue">Conception de la charte graphique basée sur un modèle préétabli</li>
                         <li>Choix d'une palette de couleurs spécifique</li>
                         <li class="blue">Inclusion du Domaine et Hébergement</li>
@@ -118,7 +122,7 @@
                         <li class="blue">Formation à l'Utilisation du Site</li>
                     </ul>
                     <div class="btn__container">
-                        <a href="mailto:maubertlea@hotmail.fr" class="btn">Demander un devis</a>
+                        <a href="mailto:azweb.connect@outlook.fr" class="btn">Demander un devis</a>
                     </div>
                 </div>
                 <div class="tarif">
@@ -140,7 +144,7 @@
                         <li class="blue">Formation à l'Utilisation du Site</li>
                     </ul>
                     <div class="btn__container">
-                        <a href="mailto:maubertlea@hotmail.fr" class="btn">Demander un devis</a>
+                        <a href="mailto:azweb.connect@outlook.fr" class="btn">Demander un devis</a>
                     </div>
                 </div>
             </div>
@@ -162,66 +166,28 @@
                 </div>
             </div>
             <?php } ?>
+            <div class="zero__testimonials">
+                <h4><span class="blue">V</span>otre Avis Compte</h4>
+                <blockquote>
+                    Cher visiteur,</br></br>
+
+                    Bienvenue sur notre page de témoignages. En tant que nouvelle entreprise passionnée par la création de sites web, votre satisfaction est notre priorité absolue.</br></br>
+
+                    Vos retours sont essentiels et nous sommes impatients de les recueillir pour façonner un service qui vous ressemble. Nous nous engageons à fournir des solutions web de haute qualité et à construire avec vous une relation de confiance et de proximité.</br></br>
+
+                    Votre expérience avec nous mérite d'être partagée et c'est ici que vos histoires prendront vie. Invitez-nous dans votre projet, et nous ferons de cet espace le reflet de notre collaboration réussie.</br></br>
+
+                    Merci de nous accompagner au début de cette aventure numérique.
+                </blockquote>
+                <img src="/public/images/photo_profil.jpg" alt="Photo de profil" class="profil-picture">
+                <cite>Maubert Léa</cite>
+                <p>Fondatrice de <span class="blue">AzureWeb</span></p>
+            </div>
         </div>
-        <div class="congratulation">
+        <!-- <div class="congratulation">
             <p>Je remercie infiniment tous mes clients pour leur confiance.</p>
-        </div>
+        </div> -->
     </section>
-    <section class="contact" id="contact">
-        <div class="background__contact">
-            <div class="contact__box">
-                <h4 class="contact__title">Contact</h4>
-                <p class="contact__text">Pour toutes demandes d’informations ou de devis, veuillez m’adressez un e-mail 
-                    grâce a ce formulaire ou via mon adresse e-mail.</p>
-                <form id="contact-form" action="process_message.php" method="post">
-                    <div class="form__container row g-2">
-                        <div class="input__container col-sm-6">
-                            <label for="lastname"></label>
-                            <input class="input__fields" type="text" id="lastname" name="lastname" placeholder="Nom" required>
-                        </div>
-                        <div class="input__container col-sm-6">
-                            <label for="firstname"></label>
-                            <input class="input__fields" type="text" id="firstname" name="firstname" placeholder="Prénom" required>
-                        </div>
-                        <div class="input__container col-sm-6">
-                            <label for="telephone"></label>
-                            <input class="input__fields" type="tel" id="telephone" name="telephone" placeholder="Téléphone" required>
-                        </div>
-                        <div class="input__container col-sm-6">
-                            <label for="email"></label>
-                            <input class="input__fields" type="email" id="email" name="email" placeholder="E-mail" required>
-                        </div>
-                        <div class="textarea__container col-sm-12">
-                            <label for="message"></label>
-                            <textarea class="input__fields" id="message" name="message" placeholder="Message" cols="30" rows="10"></textarea>
-                        </div>
-                    </div>
-                    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
-                    <input type="hidden" id="recaptchaResponse" name="g-recaptcha-response">
-                    <div class="btn__container">
-                        <button class="g-recaptcha btn" 
-                                data-sitekey="6LeeKnIpAAAAAKj5nNrQVrkW6wfNlIjIRiqBDejn" 
-                                data-callback='onSubmit' 
-                                data-action='submit'>
-                                Envoyer
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+    
     <?php $footer->render(); ?>
-    <div class="modal fade" id="responseModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content rounded-3 shadow">
-            <div class="modal-body p-4 text-center">
-                <h5 class="mb-0" id="modalTitle">Message envoyé !</h5>
-                <p class="mb-0" id="modalBody">Nous vous remercions de votre intérêt, vous recevrez une réponse de notre équipe prochainement.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-            </div>
-        </div>
-    </div>
-</div>
 
